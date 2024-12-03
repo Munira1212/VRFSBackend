@@ -16,7 +16,19 @@ public class WaterQualityController {
         @Autowired
         private WaterQualityService waterQualityService;
 
-    @PostMapping("/save")
+
+    @PostMapping("/assess") // Denne metode er en POST-mapping
+    public ResponseEntity<WaterQuality> assessWaterQuality() {
+        try {
+            WaterQuality waterQuality = waterQualityService.assessWaterQuality();
+            return ResponseEntity.ok(waterQuality);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body(null);
+        }
+    }
+    }
+
+   /* @PostMapping("/save")
     public ResponseEntity<String> saveWaterQualityRecord(
             @RequestParam int sourceId,
             @RequestParam double pH,
@@ -30,8 +42,9 @@ public class WaterQualityController {
     public ResponseEntity<List<WaterQuality>> getWaterQualityBySource(@PathVariable int sourceId) {
         List<WaterQuality> waterQualityList = waterQualityService.getWaterQualityBySource(sourceId);
         return ResponseEntity.ok(waterQualityList);
-    }
-}
+    }*/
+
+
 
 
 
