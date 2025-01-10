@@ -15,13 +15,13 @@ public class WaterQuality {
 
         private double pH; // pH level of the water
         private double turbidity; // Turbidity of the water
-        private double pm10; // Air quality parameter (PM10)
-        private double waterQualityIndex; // Calculated water quality index
-        private LocalDateTime timestamp; // Timestamp when the data was recorded
+        private double pm10;
+        private double waterQualityIndex;
+        private LocalDateTime timestamp;
 
         @ManyToOne
-        @JoinColumn(name = "groundwater_model_id") // Foreign key column
-        private GroundwaterModel groundwaterModel; // Relationship to the GroundwaterModel entity
+        @JoinColumn(name = "groundwater_model_id")
+        private GroundwaterModel groundwaterModel;
 
 
 }
